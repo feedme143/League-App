@@ -1,0 +1,61 @@
+html, body{
+    margin: 0;
+    background-color: #E5E5E5;
+}
+
+.app{
+
+}
+
+main{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    padding: 10px;
+    margin: auto;
+}
+
+.input{
+    padding: 10px;
+    margin: auto;
+}
+
+.infoContainer{
+    padding: 10px;
+    margin: 0;
+    display: grid;
+    grid-template-areas:
+        'tl tr tr tr'
+        'bl br br br'
+        'bl br br br';
+}
+
+.infoContainer > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+
+.topLeft{
+    grid-area: tl;
+    border: 1px solid black;
+}
+
+.topRight{
+    grid-area: tr;
+    border: 1px solid black;
+}
+
+.botLeft{
+    grid-area: bl;
+    border: 1px solid black;
+}
+
+.botRight{
+    grid-area: br;
+    border: 1px solid black;
+}

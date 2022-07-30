@@ -1,0 +1,97 @@
+.matchHistoryTitle{
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+.matchCard{
+    margin: 5px;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.WIN{
+    background-color: #B3CDFF;
+}
+
+.LOSS{
+    background-color: #FFBAC3;
+}
+
+
+
+
+
+.matchType{
+    min-width: 110px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.matchType > div{
+    padding: 2px;
+}
+
+.qType{
+    font-size: 20px;
+}
+
+.datePlayed{
+    font-size: 20px;
+}
+
+.timeAgo{
+    font-size: 15px;
+}
+
+.outcome{
+    font-size: 20px;
+}
+
+.gameLength{
+    font-size: 15px;
+}
+
+
+
+
+
+.champPlayed{
+
+}
+
+.champIcon{
+    margin-top: 10px;
+    border-radius: 50%;
+    height: 60px;
+}
+
+.sum-spells{
+
+}
+
+.runes{
+
+}
+
+.champName{
+    font-size: 15px;
+}
+
+
+
+
+
+.kda{
+
+}
+
+.scoreline{
+
+}
+
+.kda-ratio{
+
+}
