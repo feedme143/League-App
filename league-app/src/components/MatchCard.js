@@ -9,7 +9,11 @@ export default function MatchCard(props){
 
 
         //Champion Played Info
-        const champPlayed = info.participants[playerIndex].championName
+        let champPlayed = info.participants[playerIndex].championName
+        let displayPlayed=champPlayed
+        if(displayPlayed==="MonkeyKing"){
+            displayPlayed="Wukong"
+        }
 
         //Champion image
         const processedName=nameProcess(champPlayed)
@@ -92,10 +96,10 @@ export default function MatchCard(props){
             </div>
 
             <div className="champPlayed">
-                <img src={champIconPath} alt={champPlayed} className="champIcon"/>
+                <img src={champIconPath} alt={displayPlayed} className="champIcon"/>
                 <div className="sum-spells"></div>
                 <div className="runes"></div>
-                <div className="champName">{champPlayed}</div>
+                <div className="champName">{displayPlayed}</div>
             </div>
 
             <div className="kda">
