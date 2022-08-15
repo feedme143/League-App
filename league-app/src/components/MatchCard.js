@@ -6,10 +6,10 @@ export default function MatchCard(props){
         const info = props.match.info
         
         const playerIndex = metadata.participants.indexOf(props.puuid)
-
+        const player = info.participants[playerIndex]
 
         //Champion Played Info
-        let champPlayed = info.participants[playerIndex].championName
+        let champPlayed = player.championName
         let displayPlayed=champPlayed
         if(displayPlayed==="MonkeyKing"){
             displayPlayed="Wukong"
@@ -29,7 +29,7 @@ export default function MatchCard(props){
 
         //Outcome of Game
         let outcome
-        props.match.info.participants[playerIndex].win ? outcome = "WIN" : outcome = "LOSS"
+        player.win ? outcome = "WIN" : outcome = "LOSS"
         let className=`matchCard ${outcome}`
         
         //Type of Queue
@@ -79,11 +79,18 @@ export default function MatchCard(props){
         const seconds=totalSeconds-minutes*60
 
         //kda info
-        const playerKills=info.participants[playerIndex].kills
-        const playerDeaths=info.participants[playerIndex].deaths
-        const playerAssists=info.participants[playerIndex].assists
+        const playerKills=player.kills
+        const playerDeaths=player.deaths
+        const playerAssists=player.assists
         const playerKda = `${playerKills}/${playerDeaths}/${playerAssists}`
         const ratio = `${((playerKills+playerAssists)/playerDeaths).toFixed(2)}:1 KDA`
+
+        //level-cs-tier
+        const champPlayedLevel=player.champLevel
+        const playerCS=player.neutralMinionsKilled + player.totalMinionsKilled
+        const playerCSpm=(playerCS * 60 / totalSeconds).toFixed(1)
+
+        //
     return(
         <div className={className}>
 
@@ -108,8 +115,8 @@ export default function MatchCard(props){
             </div>
 
             <div className="level-cs-tier">
-                <div className="championLevel"></div>
-                <div className="cs"></div>
+                <div className="championLevel">Level {champPlayedLevel}</div>
+                <div className="cs">{playerCS} ({playerCSpm}) CS</div>
                 <div className="kp"></div>
                 <div className="Tier"></div>
             </div>

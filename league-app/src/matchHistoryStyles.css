@@ -26,6 +26,7 @@
     min-width: 110px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     padding-left: 8px;
     padding-right: 8px;
 }
@@ -85,13 +86,37 @@
 
 
 .kda{
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .scoreline{
-
+    font-size: 25px;
 }
 
 .kda-ratio{
+    font-size: 20px;
+}
 
+
+
+
+
+.level-cs-tier{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.championLevel{
+    font-size: 15px;
+}
+
+.cs{
+    font-size: 15px;
 }
