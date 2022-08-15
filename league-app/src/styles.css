@@ -23,39 +23,52 @@ main{
     margin: auto;
 }
 
+.displayCard{
+    background-color: #1c1c1f;
+    color: #FFF;
+}
+
+.top{
+    background-color: #31313b;
+    height: 250px;
+}
+
 .infoContainer{
+    width: 1200px;
     padding: 10px;
-    margin: 0;
+    margin: auto;
     display: grid;
     grid-template-areas:
         'tl tr tr tr'
         'bl br br br'
         'bl br br br';
+    gap: 6px;
 }
 
 .infoContainer > div {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #31313b;
     text-align: center;
+    border-radius: 3px;
     padding: 20px 0;
     font-size: 30px;
   }
 
 .topLeft{
+    width: 300px;
     grid-area: tl;
-    border: 1px solid black;
 }
 
 .topRight{
+    width: 900px;
     grid-area: tr;
-    border: 1px solid black;
 }
 
 .botLeft{
+    width: 300px;
     grid-area: bl;
-    border: 1px solid black;
 }
 
 .botRight{
+    width: 900px;
     grid-area: br;
-    border: 1px solid black;
 }

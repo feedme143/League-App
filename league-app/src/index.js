@@ -4,6 +4,7 @@ import App from './App';
 
 import './styles.css'
 import './matchHistoryStyles.css'
+import './top.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
