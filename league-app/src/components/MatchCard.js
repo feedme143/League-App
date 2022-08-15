@@ -89,7 +89,11 @@ export default function MatchCard(props){
         const champPlayedLevel=player.champLevel
         const playerCS=player.neutralMinionsKilled + player.totalMinionsKilled
         const playerCSpm=(playerCS * 60 / totalSeconds).toFixed(1)
-
+        let allyTotalKills=0
+        let enemyTotalKills=0
+        for (const element of info.participants) 
+            element.teamId===player.teamId ? allyTotalKills+=element.kills : enemyTotalKills+=element.kills
+        const playerKP=((playerKills + playerAssists) * 100 / allyTotalKills).toFixed()
         //
     return(
         <div className={className}>
@@ -117,7 +121,7 @@ export default function MatchCard(props){
             <div className="level-cs-tier">
                 <div className="championLevel">Level {champPlayedLevel}</div>
                 <div className="cs">{playerCS} ({playerCSpm}) CS</div>
-                <div className="kp"></div>
+                <div className="kp">P/Kill {playerKP}%</div>
                 <div className="Tier"></div>
             </div>
 

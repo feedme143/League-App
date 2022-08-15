@@ -6,8 +6,10 @@ export default function DisplayCard(props){
     return(
         <div className="displayCard">
             <div className="top">
-                <div className="accountName">Name: {props.data.name}</div>
-                <div className="accountLevel">Level: {props.data.summonerLevel}</div>
+                <div className="topContainer">
+                    <div className="accountName">Name: {props.data.name}</div>
+                    <div className="accountLevel">Level: {props.data.summonerLevel}</div>
+                </div>
             </div>
             <div className="infoContainer">
                 <div className="topLeft">
@@ -22,9 +24,7 @@ export default function DisplayCard(props){
                     BOT LEFT
                 </div>
 
-                <div className="botRight">
-                    <MatchHistory puuid={props.data.puuid}/>
-                </div>
+                <MatchHistory puuid={props.data.puuid}/>
             </div>
         </div>  
     )

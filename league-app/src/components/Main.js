@@ -1,4 +1,4 @@
-import Input from './Input.js'
+import Navbar from './Navbar.js'
 import DisplayCard from './DisplayCard.js'
 import React from 'react'
 import {API_KEY} from"../RIOT_API"
@@ -24,8 +24,7 @@ export default function Main(){
 
     return(
         <main>
-            <h5 className = "title">League of Legends Player Search</h5>
-            <Input summonerName={summonerName} updateName={updateName} getInfo={getInfo}/>
+            <Navbar summonerName={summonerName} updateName={updateName} getInfo={getInfo}/>
             {summonerData && (summonerData.name ? <DisplayCard data={summonerData} /> : <div>Summoner Not Found</div>)}
       </main>
     )

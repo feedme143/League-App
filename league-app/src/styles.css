@@ -1,6 +1,9 @@
 html, body{
     margin: 0;
-    background-color: #E5E5E5;
+}
+
+#root{
+
 }
 
 .app{
@@ -8,9 +11,11 @@ html, body{
 }
 
 main{
-    margin-top: 50px;
+    min-height: 100vh;
+    background-color: #1c1c1f;
     display: flex;
     flex-direction: column;
+    color: #FFF;
 }
 
 .title{
@@ -18,19 +23,40 @@ main{
     margin: auto;
 }
 
-.input{
-    padding: 10px;
+.navbar{
+    background-color: #5383E8;
+}
+
+.navElements{
     margin: auto;
+    width: 1200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title{
+    margin: 0;
+    text-align: left;
+}
+
+.form{
+
 }
 
 .displayCard{
-    background-color: #1c1c1f;
-    color: #FFF;
+
 }
 
 .top{
     background-color: #31313b;
     height: 250px;
+}
+
+.topContainer{
+    width: 1200px;
+    margin: auto;
 }
 
 .infoContainer{
@@ -46,29 +72,37 @@ main{
 }
 
 .infoContainer > div {
-    background-color: #31313b;
     text-align: center;
     border-radius: 3px;
-    padding: 20px 0;
     font-size: 30px;
   }
 
 .topLeft{
+    padding: 20px 0;
     width: 300px;
+    background-color: #31313b;
     grid-area: tl;
 }
 
 .topRight{
+    padding: 20px 0;
     width: 900px;
+    background-color: #31313b;
     grid-area: tr;
 }
 
 .botLeft{
+    padding: 20px 0;  
     width: 300px;
+    background-color: #31313b;
     grid-area: bl;
 }
 
 .botRight{
     width: 900px;
     grid-area: br;
+}
+
+.botRight > div{
+    border-radius: 3px;
 }

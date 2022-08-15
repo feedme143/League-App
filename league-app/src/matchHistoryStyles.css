@@ -1,10 +1,14 @@
+.matchHistoryHeader{
+    padding: 20px 0;
+    background-color: #31313b;
+}
+
 .matchHistoryTitle{
     margin: 0;
-    padding-bottom: 20px;
 }
 
 .matchCard{
-    margin: 5px;
+    margin: 5px 0;
     padding: 15px 0;
     display: flex;
     flex-direction: row;
@@ -113,10 +117,22 @@
     padding-right: 15px;
 }
 
-.championLevel{
+.level-cs-tier > div{
     font-size: 15px;
 }
 
+.championLevel{
+
+}
+
 .cs{
-    font-size: 15px;
+
+}
+
+.kp{
+
+}
+
+.tier{
+
 }

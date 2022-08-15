@@ -53,8 +53,10 @@ React.useEffect(()=>{
     
 
     return(
-        <div>
-            <h5 className="matchHistoryTitle">Match History</h5>
+        <div className="botRight">
+            <div className="matchHistoryHeader">
+                <div className="matchHistoryTitle">Match History</div>
+            </div>
             {displayMatchHistory}
         </div>
     )
