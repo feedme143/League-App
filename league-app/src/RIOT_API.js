@@ -1,3 +1,3 @@
-const API_KEY = "RGAPI-7fd95269-ae75-4541-8bc4-e38d4babcf88"
+const API_KEY = "RGAPI-063409e2-99a4-4db0-ba81-e41e0ca2557f"
 
 export {API_KEY}
