@@ -59,7 +59,7 @@ main{
     margin: auto;
 }
 
-.infoContainer{
+/* .infoContainer{
     width: 1200px;
     padding: 10px;
     margin: auto;
@@ -96,13 +96,14 @@ main{
     width: 300px;
     background-color: #31313b;
     grid-area: bl;
-}
+} */
 
-.botRight{
+.matchHistory{
+    margin: 10px auto;
     width: 900px;
     grid-area: br;
 }
 
-.botRight > div{
+.matchHistory > div{
     border-radius: 3px;
 }

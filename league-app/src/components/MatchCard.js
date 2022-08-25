@@ -27,6 +27,30 @@ export default function MatchCard(props){
             return str;
         }
 
+        //Player Summoner Spells
+        const ssmap = {
+            21: "Barrier",
+            1: "Boost", //name: "Cleanse", cleanse summoner
+            14: "Dot", //name: "Ignite", ignite summoner
+            3: "Exhaust",
+            4: "Flash",
+            6: "Haste", //name: "Ghost", ghost summoner
+            7: "Heal",
+            13: "Mana", //name: "Clarity", Aram clarity    
+            // 30: To the King!
+            // 31: Poro Toss
+            11: "Smite",
+            //39: Mark, //URF Snowball
+            32: "Snowball", //name: "Mark", Aram Snowball
+            12: "Teleport"
+            // 54: Placeholder
+            // 55: Placeholder and Attack-Smite
+        }
+        const s1id = player.summoner1Id
+        const s2id = player.summoner2Id
+        const playerSum1 = `https://opgg-static.akamaized.net/images/lol/spell/Summoner${ssmap[s1id]}.png?image=q_auto,f_webp,w_44&v=1660126953027`
+        const playerSum2 = `https://opgg-static.akamaized.net/images/lol/spell/Summoner${ssmap[s2id]}.png?image=q_auto,f_webp,w_44&v=1660126953027`  
+        
         //Outcome of Game
         let outcome
         player.win ? outcome = "WIN" : outcome = "LOSS"
@@ -108,9 +132,12 @@ export default function MatchCard(props){
 
             <div className="champPlayed">
                 <img src={champIconPath} alt={displayPlayed} className="champIcon"/>
-                <div className="sum-spells"></div>
+                <div className="sum-spells">
+                    <img className="playerSum1" src={playerSum1} alt={ssmap[s1id]}/>
+                    <img className="playerSum2" src={playerSum2} alt={ssmap[s2id]}/>
+                </div>
                 <div className="runes"></div>
-                <div className="champName">{displayPlayed}</div>
+                {/* <div className="champName">{displayPlayed}</div> */}
             </div>
 
             <div className="kda">

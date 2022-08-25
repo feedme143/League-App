@@ -4,7 +4,8 @@
 }
 
 .matchHistoryTitle{
-    margin: 0;
+    text-align: center;
+    margin: auto;
 }
 
 .matchCard{
@@ -64,7 +65,8 @@
 
 
 .champPlayed{
-
+    display: flex;
+    flex-direction: row;
 }
 
 .champIcon{
@@ -74,16 +76,21 @@
 }
 
 .sum-spells{
+    display: flex;
+    flex-direction: column;
+}
 
+.sum-spells > img{
+    height: 25px;
 }
 
 .runes{
 
 }
 
-.champName{
+/* .champName{
     font-size: 15px;
-}
+} */
 
 
 

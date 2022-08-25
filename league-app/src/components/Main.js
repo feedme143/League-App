@@ -7,7 +7,6 @@ export default function Main(){
     const [summonerName, setSummonerName] = React.useState("")
     const [summonerData, setSummonerData] = React.useState()
 
-    // const API_KEY = "RGAPI-ac8f24ef-42df-4b02-a52f-9c654a39b9b1"
     const bySummonerName = "https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summonerName + "?api_key=" + API_KEY
     
     function updateName(event){
@@ -26,6 +25,7 @@ export default function Main(){
         <main>
             <Navbar summonerName={summonerName} updateName={updateName} getInfo={getInfo}/>
             {summonerData && (summonerData.name ? <DisplayCard data={summonerData} /> : <div>Summoner Not Found</div>)}
+            {/* <Footer/> */}
       </main>
     )
 }

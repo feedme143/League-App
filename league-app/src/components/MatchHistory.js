@@ -50,10 +50,10 @@ React.useEffect(()=>{
     
     setDisplayMatchHistory(placeholderData)
 }, [matches])
-    
+
 
     return(
-        <div className="botRight">
+        <div className="matchHistory">
             <div className="matchHistoryHeader">
                 <div className="matchHistoryTitle">Match History</div>
             </div>

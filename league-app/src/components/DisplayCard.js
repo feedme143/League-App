@@ -11,7 +11,8 @@ export default function DisplayCard(props){
                     <div className="accountLevel">Level: {props.data.summonerLevel}</div>
                 </div>
             </div>
-            <div className="infoContainer">
+            <MatchHistory puuid={props.data.puuid}/>
+            {/* <div className="infoContainer">
                 <div className="topLeft">
                     TOP LEFT
                 </div>
@@ -25,7 +26,7 @@ export default function DisplayCard(props){
                 </div>
 
                 <MatchHistory puuid={props.data.puuid}/>
-            </div>
+            </div> */}
         </div>  
     )
 }
