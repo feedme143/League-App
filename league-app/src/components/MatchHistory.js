@@ -13,7 +13,7 @@ export default function MatchHistory(props){
 //State variable displayMatchHistory is the mapped variable that displays the info for each match
     const [displayMatchHistory, setDisplayMatchHistory] = React.useState("")
 
-    let byMatchHistory = "https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/" + props.puuid + "/ids?start=0&count=3&api_key=" + API_KEY
+    let byMatchHistory = "https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/" + props.puuid + "/ids?start=0&count=10&api_key=" + API_KEY
 
 
 //API call function, returns array of match infos for the past x matches
@@ -25,11 +25,20 @@ export default function MatchHistory(props){
 
             const responses = await Promise.all(
                 ids.map(async id => {
-                    const res = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/${id}?api_key=${API_KEY}`)
-                    const data = await res.json()
-
-                    let r = await api.post('/', {matchId: id, data: data})
-                    console.log(r)
+                    //call to my own api
+                    const res = await fetch(`http://localhost:3001/posts/${id}`)
+                    const d = await res.json()
+                    //console.log(d[0])
+                    const data = d[0] ? d[0].data : await getData()
+                    
+                    async function getData() {
+                        const res = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/${id}?api_key=${API_KEY}`)
+                        const dat = await res.json()
+                        let r = await api.post('/', {matchId: id, data: dat})
+                        //console.log(r)
+                        return dat
+                    }
+               
                     // const playerIndex = data.metadata.participants.indexOf(props.puuid)
                     // const champPlayed = data.info.participants[playerIndex].championName
                     // return champPlayed

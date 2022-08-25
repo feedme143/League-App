@@ -107,7 +107,8 @@ export default function MatchCard(props){
         const playerDeaths=player.deaths
         const playerAssists=player.assists
         const playerKda = `${playerKills}/${playerDeaths}/${playerAssists}`
-        const ratio = `${((playerKills+playerAssists)/playerDeaths).toFixed(2)}:1 KDA`
+        const decimal = playerDeaths === 0 ? (playerKills+playerAssists).toFixed(2) : ((playerKills+playerAssists)/playerDeaths).toFixed(2)
+        const ratio = `${decimal}:1 KDA`
 
         //level-cs-tier
         const champPlayedLevel=player.champLevel
