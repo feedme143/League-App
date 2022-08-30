@@ -132,10 +132,12 @@ export default function MatchCard(props){
             </div>
 
             <div className="champPlayed">
-                <img src={champIconPath} alt={displayPlayed} className="champIcon"/>
-                <div className="sum-spells">
-                    <img className="playerSum1" src={playerSum1} alt={ssmap[s1id]}/>
-                    <img className="playerSum2" src={playerSum2} alt={ssmap[s2id]}/>
+                <div className="champContainer">
+                    <img src={champIconPath} alt={displayPlayed} className="champIcon"/>
+                    <div className="sum-spells">
+                        <img className="playerSum1" src={playerSum1} alt={ssmap[s1id]}/>
+                        <img className="playerSum2" src={playerSum2} alt={ssmap[s2id]}/>
+                    </div>
                 </div>
                 <div className="runes"></div>
                 {/* <div className="champName">{displayPlayed}</div> */}
