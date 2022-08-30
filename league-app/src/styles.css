@@ -18,13 +18,13 @@ main{
     color: #FFF;
 }
 
+.navbar{
+    background-color: #5383E8;
+}
+
 .title{
     padding: 10px;
     margin: auto;
-}
-
-.navbar{
-    background-color: #5383E8;
 }
 
 .navElements{
