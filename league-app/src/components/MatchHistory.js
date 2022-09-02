@@ -6,25 +6,25 @@ import axios from 'axios'
 export default function MatchHistory(props){
 //axios setup
     const api = axios.create({
-        baseURL: `http://localhost:3001/posts`
+        baseURL: `http://localhost:3001`
     })
 //State variable containing array of match history info
     const [matches, setMatches] = React.useState()
 //State variable displayMatchHistory is the mapped variable that displays the info for each match
     const [displayMatchHistory, setDisplayMatchHistory] = React.useState("")
 
-    let byMatchHistory = "https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/" + props.puuid + "/ids?start=0&count=10&api_key=" + API_KEY
+    // let byMatchHistory = "https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/" + props.puuid + "/ids?start=0&count=10&api_key=" + API_KEY
 
 
 //API call function, returns array of match infos for the past x matches
 
     React.useEffect(()=>{
         async function getMatchIds(){
-            const idPromise = await fetch(byMatchHistory)
-            const ids = await idPromise.json()
+            // const idPromise = await fetch(byMatchHistory)
+            // const ids = await idPromise.json()
 
             const responses = await Promise.all(
-                ids.map(async id => {
+                props.games.map(async id => {
                     //call to my own api
                     const res = await fetch(`http://localhost:3001/posts/${id}`)
                     const d = await res.json()
@@ -34,14 +34,11 @@ export default function MatchHistory(props){
                     async function getData() {
                         const res = await fetch(`https://americas.api.riotgames.com/lol/match/v5/matches/${id}?api_key=${API_KEY}`)
                         const dat = await res.json()
-                        let r = await api.post('/', {matchId: id, data: dat})
-                        //console.log(r)
+                        api.post('/posts', {matchId: id, data: dat})
+
                         return dat
                     }
-               
-                    // const playerIndex = data.metadata.participants.indexOf(props.puuid)
-                    // const champPlayed = data.info.participants[playerIndex].championName
-                    // return champPlayed
+
                     return data
                 })
             ) 
@@ -51,7 +48,7 @@ export default function MatchHistory(props){
 
         getMatchIds()
 
-    }, [props.puuid, byMatchHistory])
+    }, [props.puuid])
 
 
 //function that creates displayMatchHistory

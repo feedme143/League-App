@@ -1,20 +1,30 @@
 import React from 'react';
 import {useNavigate, Link} from 'react-router-dom';
 import {API_KEY} from"../RIOT_API";
+import axios from 'axios';
 
 export default function Input(props){
 
-    const navigate = useNavigate();
-    const bySummonerName = "https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + props.summonerName + "?api_key=" + API_KEY;
+    //axios setup
+    const api = axios.create({
+        baseURL: `http://localhost:3001`
+    })
 
-    function handleSubmit(event){
-        props.summonerName && props.summonerName.length>2 && fetch(bySummonerName)
-        .then(response => response.json())
-        .then(data => {
-            props.updateData(data);
-            navigate("/display");
-        })
-        .catch(error => console.log('Error:', error));
+    const navigate = useNavigate();
+    //const bySummonerName = "https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + props.summonerName + "?api_key=" + API_KEY;
+
+    async function handleSubmit(event){
+        if (props.summonerName && props.summonerName.length>2) {
+            const res = await api.get(`/summoners/${props.summonerName}`);
+            const data = res.data;
+            console.log(data);
+            if (data) {
+                props.setSummonerData(data);
+                navigate('/display');
+            } else {
+                console.log("Summoner not Found");
+            }
+        }
     }
 
     return(
