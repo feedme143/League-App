@@ -1,6 +1,5 @@
 import React from 'react';
 import {useNavigate, Link} from 'react-router-dom';
-import {API_KEY} from"../RIOT_API";
 import axios from 'axios';
 
 export default function Input(props){

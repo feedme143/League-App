@@ -9,6 +9,7 @@ export default function DisplayCard(props){
                 <div className="topContainer">
                     <div className="accountName">Name: {props.data.name}</div>
                     <div className="accountLevel">Level: {props.data.level}</div>
+                    <button className="update">Update</button>
                 </div>
             </div>
             <MatchHistory puuid={props.data.puuid} name={props.data.name} games={props.data.games}/>
