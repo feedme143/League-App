@@ -19,7 +19,7 @@ export default function MatchCard(props){
         const processedName=nameProcess(champPlayed)
         let champIconPath = `https://opgg-static.akamaized.net/images/lol/champion/${processedName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_auto&v=1659072303149`;
 
-        function nameProcess(name){
+        function nameProcess(name){ 
             if(name==="Renata Glasc")
                 return "Renata"
             let str=name;
@@ -118,8 +118,22 @@ export default function MatchCard(props){
         let enemyTotalKills=0
         for (const element of info.participants) 
             element.teamId===player.teamId ? allyTotalKills+=element.kills : enemyTotalKills+=element.kills
-        const playerKP=((playerKills + playerAssists) * 100 / allyTotalKills).toFixed()
-        //
+        const playerKP=playerKills + playerAssists === 0 ? 0: ((playerKills + playerAssists) * 100 / allyTotalKills).toFixed()
+        
+        //items
+        const items = [
+            player.item0,
+            player.item1,
+            player.item2,
+            player.item3,
+            player.item4,
+            player.item5
+        ]
+
+        const ward = player.item6
+
+        const displayItems = items.map((item, index) => <div key={index} className={`item${index}`}> {item === 0 ? "" : <img src = {`https://opgg-static.akamaized.net/images/lol/item/${item}.png?image=q_auto,f_webp,w_44&v=1664158120569`}/>} </div>)
+
     return(
         <div className={className}>
 
@@ -131,38 +145,39 @@ export default function MatchCard(props){
                 <div className="gameLength">{minutes}m {seconds}s</div>
             </div>
 
-            <div className="champPlayed">
-                <div className="champContainer">
-                    <img src={champIconPath} alt={displayPlayed} className="champIcon"/>
-                    <div className="sum-spells">
-                        <img className="playerSum1" src={playerSum1} alt={ssmap[s1id]}/>
-                        <img className="playerSum2" src={playerSum2} alt={ssmap[s2id]}/>
+            <div className="info">
+                <div className="info-top">
+                    <div className="champPlayed">
+                        <div className="champContainer">
+                            <img src={champIconPath} alt={displayPlayed} className="champIcon"/>
+                            <div className="sum-spells">
+                                <img className="playerSum1" src={playerSum1} alt={ssmap[s1id]}/>
+                                <img className="playerSum2" src={playerSum2} alt={ssmap[s2id]}/>
+                            </div>
+                        </div>
+                        <div className="runes"></div>
+                        {/* <div className="champName">{displayPlayed}</div> */}
+                    </div>
+
+                    <div className="kda">
+                        <div className="scoreline">{playerKda}</div>
+                        <div className="kda-ratio">{ratio}</div>
+                    </div>
+
+                    <div className="level-cs-tier">
+                        <div className="championLevel">Level {champPlayedLevel}</div>
+                        <div className="cs">{playerCS} ({playerCSpm}) CS</div>
+                        <div className="kp">P/Kill {playerKP}%</div>
+                        <div className="Tier"></div>
                     </div>
                 </div>
-                <div className="runes"></div>
-                {/* <div className="champName">{displayPlayed}</div> */}
-            </div>
 
-            <div className="kda">
-                <div className="scoreline">{playerKda}</div>
-                <div className="kda-ratio">{ratio}</div>
-            </div>
-
-            <div className="level-cs-tier">
-                <div className="championLevel">Level {champPlayedLevel}</div>
-                <div className="cs">{playerCS} ({playerCSpm}) CS</div>
-                <div className="kp">P/Kill {playerKP}%</div>
-                <div className="Tier"></div>
-            </div>
-
-            <div className="items">
-                <div className="item-1"></div>
-                <div className="item-2"></div>
-                <div className="item-3"></div>
-                <div className="item-4"></div>
-                <div className="item-5"></div>
-                <div className="item-6"></div>
-                <div className="ward"></div>
+                <div className="items">
+                    {displayItems}
+                    <div className="ward">
+                        <img src={`https://opgg-static.akamaized.net/images/lol/item/${ward}.png?image=q_auto,f_webp,w_44&v=1664158120569`}/>
+                    </div>
+                </div>
             </div>
 
             <div className="allPlayers">

@@ -64,6 +64,18 @@
 
 
 
+.info{
+}
+
+.info-top{
+    display:flex;
+    flex-direction: row;
+}
+
+
+
+
+
 .champPlayed{
     display: flex;
     align-items: center;
@@ -151,4 +163,29 @@
 
 .tier{
 
+}
+
+
+
+
+
+
+.items{
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+}
+
+.items > div{
+    border-radius: 2px;
+    width: 22px;
+    height: 22px;
+    /* border: 1px solid black; */
+    overflow: hidden;
+}
+
+.items > div > img{
+    width: 22px;
+    height: 22px;
+    object-fit: cover;
 }
