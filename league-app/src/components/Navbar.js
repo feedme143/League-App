@@ -16,7 +16,7 @@ export default function Input(props){
         if (props.summonerName && props.summonerName.length>2) {
             const res = await api.get(`/summoners/${props.summonerName}`);
             const data = res.data;
-            console.log(data);
+            //console.log(data);
             if (data) {
                 props.setSummonerData(data);
                 navigate('/display');

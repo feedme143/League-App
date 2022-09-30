@@ -175,7 +175,7 @@ export default function MatchCard(props){
                 <div className="items">
                     {displayItems}
                     <div className="ward">
-                        <img src={`https://opgg-static.akamaized.net/images/lol/item/${ward}.png?image=q_auto,f_webp,w_44&v=1664158120569`}/>
+                        {ward === 0 ? "" : <img src = {`https://opgg-static.akamaized.net/images/lol/item/${ward}.png?image=q_auto,f_webp,w_44&v=1664158120569`}/>}
                     </div>
                 </div>
             </div>
