@@ -16,6 +16,7 @@ main{
     display: flex;
     flex-direction: column;
     color: #FFF;
+    padding-bottom: 20px;
 }
 
 .navbar{
@@ -115,4 +116,19 @@ main{
 
 .matchHistory > div{
     border-radius: 3px;
+}
+
+.showMore{
+    margin: auto;
+    height: 30px;
+    width: 900px;
+    background-color: #31313b;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.showMore > div{
+    text-align: center;
 }

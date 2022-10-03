@@ -13,6 +13,9 @@ export default function DisplayCard(props){
                 </div>
             </div>
             <MatchHistory puuid={props.data.puuid} name={props.data.name} games={props.data.games}/>
+            <div className="showMore">
+                <div>Show More</div>
+            </div>
             {/* <div className="infoContainer">
                 <div className="topLeft">
                     TOP LEFT
