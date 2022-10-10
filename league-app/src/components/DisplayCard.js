@@ -12,7 +12,7 @@ export default function DisplayCard(props){
     
             t=parseInt(t/60000)
             if (t<60) {
-                return t + ` minute${isOne(t)} ago`
+                return (t === 0 ? 'Just Now' : t + ` minute${isOne(t)} ago`)
             } else if (t<1440) {
                 return parseInt(t/60) + ` hour${isOne(t/60)} ago`
             } else if (t<43200) {
