@@ -131,8 +131,8 @@ export default function MatchCard(props){
         ]
 
         const ward = player.item6
-
-        const displayItems = items.map((item, index) => <div key={index} className={`item${index}`}> {item === 0 ? "" : <img src = {`https://opgg-static.akamaized.net/images/lol/item/${item}.png?image=q_auto,f_webp,w_44&v=1664158120569`}/>} </div>)
+        //{`https://opgg-static.akamaized.net/images/lol/item/${item}.png?image=q_auto,f_webp,w_44&v=1664158120569`}
+        const displayItems = items.map((item, index) => <div key={index} className={`item${index}`}> {item === 0 ? "" : <img src = {`http://localhost:3001/images/${item}.png`}/>} </div>)
 
     return(
         <div className={className}>

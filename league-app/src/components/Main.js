@@ -21,7 +21,7 @@ export default function Main(){
         <Router>
             <main>
                 <Navbar summonerName={summonerName} updateName={setSummonerName} setSummonerData={setSummonerData}/>
-        
+                
                 {/* {summonerData && (summonerData.name ? <DisplayCard data={summonerData} /> : <div>Summoner Not Found</div>)} */}
                 <Routes>
                     <Route path="/" element={
