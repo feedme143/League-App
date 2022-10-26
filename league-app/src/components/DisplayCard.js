@@ -32,25 +32,10 @@ export default function DisplayCard(props){
                     <div className="lastUpdated">{props.data.lastUpdated && "Last Updated: " + convertTime(Date.now()-props.data.lastUpdated)}</div>
                 </div>
             </div>
-            <MatchHistory puuid={props.data.puuid} name={props.data.name} games={props.data.games}/>
+            <MatchHistory puuid={props.data.puuid} name={props.data.name} games={props.data.games} search={props.search}/>
             <div className="showMore">
                 <div>Show More</div>
             </div>
-            {/* <div className="infoContainer">
-                <div className="topLeft">
-                    TOP LEFT
-                </div>
-
-                <div className="topRight">
-                    TOP RIGHT
-                </div>
-
-                <div className="botLeft">
-                    BOT LEFT
-                </div>
-
-                <MatchHistory puuid={props.data.puuid}/>
-            </div> */}
         </div>  
     )
 }

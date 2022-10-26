@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {useNavigate, Link} from 'react-router-dom';
 
 export default function MatchCard(props){
         
@@ -129,10 +130,17 @@ export default function MatchCard(props){
             player.item4,
             player.item5
         ]
-
+        //get Itmes from my S3 bucket storage
         const ward = player.item6
         //{`https://opgg-static.akamaized.net/images/lol/item/${item}.png?image=q_auto,f_webp,w_44&v=1664158120569`}
         const displayItems = items.map((item, index) => <div key={index} className={`item${index}`}> {item === 0 ? "" : <img src = {`http://localhost:3001/images/${item}.png`}/>} </div>)
+
+        //Display all summoners in the game
+        const allPlayers = info.participants.map(player => player.summonerName);
+        const blueTeam = allPlayers.slice(0,5);
+        const redTeam = allPlayers.slice(5);
+        const displayBlue = blueTeam.map((player, index) => <div key={index} className="player"><button onClick={() => props.search(player)} className="playerLink">{player}</button></div>);
+        const displayRed = redTeam.map((player, index) => <div key={index} className="player"><button onClick={() => props.search(player)} className="playerLink">{player}</button></div>);
 
     return(
         <div className={className}>
@@ -181,16 +189,8 @@ export default function MatchCard(props){
             </div>
 
             <div className="allPlayers">
-                <div className="player-1"></div>
-                <div className="player-2"></div>
-                <div className="player-3"></div>
-                <div className="player-4"></div>
-                <div className="player-5"></div>
-                <div className="player-6"></div>
-                <div className="player-7"></div>
-                <div className="player-8"></div>
-                <div className="player-9"></div>
-                <div className="player-10"></div>
+                <div className="team Blue">{displayBlue}</div>
+                <div className="team Red">{displayRed}</div>
             </div>
 
         </div>

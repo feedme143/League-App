@@ -1,11 +1,14 @@
-import React from 'react'
-import Main from './components/Main.js'
+import React from 'react';
+import Main from './components/Main.js';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 function App() {
 
   return (
     <div className="app">
-      <Main />
+      <Router>
+        <Main />
+      </Router>
     </div>
   );
 }
