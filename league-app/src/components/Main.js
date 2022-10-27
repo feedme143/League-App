@@ -21,6 +21,7 @@ export default function Main(){
     }   
     
     async function search(input){
+        console.log(input);
         if (input && input.length>2) {
             const res = await api.get(`/summoners/${input}`);
             const data = res.data;
@@ -45,7 +46,7 @@ export default function Main(){
                 <Route path="/" element={
                     <div className = "welcome">Welcome, Search For a Summoner in the Top Right!</div>
                 } />
-                <Route path={`/display/${summonerName}`} element={<DisplayCard data={summonerData} update={update} search={search}/>} />
+                <Route path={`/display/*`} element={<DisplayCard data={summonerData} update={update} search={search}/>} />
             </Routes>
         </main>
 
