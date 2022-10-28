@@ -139,8 +139,8 @@ export default function MatchCard(props){
         const allPlayers = info.participants.map(player => player.summonerName);
         const blueTeam = allPlayers.slice(0,5);
         const redTeam = allPlayers.slice(5);
-        const displayBlue = blueTeam.map((player, index) => <div key={index} className="player"><button onClick={() => props.search(player)} className="playerLink">{player}</button></div>);
-        const displayRed = redTeam.map((player, index) => <div key={index} className="player"><button onClick={() => props.search(player)} className="playerLink">{player}</button></div>);
+        const displayBlue = blueTeam.map((player, index) => <div key={index} className="player"><Link to={`/display`} onClick={() => props.search(player)} className="playerLink">{player}</Link></div>);
+        const displayRed = redTeam.map((player, index) => <div key={index} className="player"><Link to={`/display`} onClick={() => props.search(player)} className="playerLink">{player}</Link></div>);
         
     return(
         <div className={className}>

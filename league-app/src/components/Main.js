@@ -21,7 +21,7 @@ export default function Main(){
     }   
     
     async function search(input){
-        console.log(input);
+        
         if (input && input.length>2) {
             const res = await api.get(`/summoners/${input}`);
             const data = res.data;
