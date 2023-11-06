@@ -16,9 +16,14 @@ export default function MatchCard(props){
             displayPlayed="Wukong"
         }
 
+        //Function to get an champion icon image path
+        let getChampIcon = (champIconName) => {
+            const processedName=nameProcess(champIconName);
+            return `https://opgg-static.akamaized.net/images/lol/champion/${processedName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_auto&v=1659072303149`;
+        };
+
         //Champion image
-        const processedName=nameProcess(champPlayed)
-        let champIconPath = `https://opgg-static.akamaized.net/images/lol/champion/${processedName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_auto&v=1659072303149`;
+        let champIconPath = getChampIcon(champPlayed);
 
         function nameProcess(name){ 
             if(name==="Renata Glasc")
@@ -133,14 +138,24 @@ export default function MatchCard(props){
         //get Itmes from my S3 bucket storage
         const ward = player.item6
         //{`https://opgg-static.akamaized.net/images/lol/item/${item}.png?image=q_auto,f_webp,w_44&v=1664158120569`}
-        const displayItems = items.map((item, index) => <div key={index} className={`item${index}`}> {item === 0 ? "" : <img src = {`http://localhost:3001/images/${item}.png`}/>} </div>)
+        const displayItems = items.map((item, index) => <div key={index} className={`item${index}`}> {item === 0 ? "" : <img src = {`http://localhost:8080/images/items/${item}.png`}/>} </div>)
 
         //Display all summoners in the game
-        const allPlayers = info.participants.map(player => player.summonerName);
+        const allPlayers = info.participants.map(participant => [participant.summonerName, participant.championName]);
         const blueTeam = allPlayers.slice(0,5);
         const redTeam = allPlayers.slice(5);
-        const displayBlue = blueTeam.map((player, index) => <div key={index} className="player"><Link to={`/display/${player}`} className="playerLink">{player}</Link></div>);
-        const displayRed = redTeam.map((player, index) => <div key={index} className="player"><Link to={`/display${player}`} className="playerLink">{player}</Link></div>);
+
+        const displayBlue = blueTeam.map((player, index) => (
+            <div key={index} className="player">
+                <img src={getChampIcon(player[1])} alt="N/A" className="participantIcon"/>
+                <Link to={`/display/${player[0]}`} className="playerLink">{player[0]}</Link>
+            </div>));
+
+        const displayRed = redTeam.map((player, index) => (
+        <div key={index} className="player">
+            <img src={getChampIcon(player[1])} alt="N/A" className="participantIcon"/>
+            <Link to={`/display/${player[0]}`} className="playerLink">{player[0]}</Link>
+        </div>));
         
     return(
         <div className={className}>

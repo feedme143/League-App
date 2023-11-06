@@ -6,7 +6,7 @@ import axios from 'axios';
 export default function DisplayCard(props){
 
     const api = axios.create({ //axios setup
-        baseURL: `http://localhost:3001`
+        baseURL: `http://localhost:8080`
     })  
 
     const {name} = useParams(); //params for this component
@@ -38,13 +38,14 @@ export default function DisplayCard(props){
     }
 
     //Convert last updated time
-    function convertTime(t){
+    function convertTime(lastUpdatedTime){
+        let t = Date.now() - lastUpdatedTime;
         function isOne(n){
             if (parseInt(n)===1)
                 return ""
             return "s"
         }
-
+        
         t=parseInt(t/60000)
         if (t<60) {
             return (t === 0 ? 'Just Now' : t + ` minute${isOne(t)} ago`)
@@ -64,7 +65,7 @@ export default function DisplayCard(props){
                     <div className="accountName">Name: {summonerData.name}</div>
                     <div className="accountLevel">Level: {summonerData.level}</div>
                     <button className="update" onClick={update}>Update</button>
-                    <div className="lastUpdated">{summonerData.lastUpdated && "Last Updated: " + convertTime(Date.now()-summonerData.lastUpdated)}</div>
+                    <div className="lastUpdated">{"Last Updated: " + (summonerData.lastUpdated ? convertTime(summonerData.lastUpdated) : "N/A")}</div>
                 </div>
             </div>}
             {summonerData && <MatchHistory puuid={summonerData.puuid} name={summonerData.name} games={summonerData.games}/>}

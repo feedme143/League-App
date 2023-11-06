@@ -49,7 +49,7 @@
 }
 
 .timeAgo{
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .outcome{
@@ -57,7 +57,7 @@
 }
 
 .gameLength{
-    font-size: 15px;
+    font-size: 14px;
 }
 
 
@@ -146,7 +146,7 @@
 }
 
 .level-cs-tier > div{
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .championLevel{
@@ -177,16 +177,16 @@
 }
 
 .items > div{
-    border-radius: 2px;
-    width: 22px;
-    height: 22px;
+    border-radius: 3px;
+    width: 25px;
+    height: 25px;
     /* border: 1px solid black; */
     overflow: hidden;
 }
 
 .items > div > img{
-    width: 22px;
-    height: 22px;
+    width: 25px;
+    height: 25px;
     object-fit: cover;
 }
 
@@ -204,10 +204,25 @@
     width: 150px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    gap: 2px;
+}
+
+.player{
+    display: flex;
+    flex-direction: horizontal;
+    align-items: center;
+    /* padding: 2px 0; */
 }
 
 .playerLink{
     margin: 0;
     color: white;
-    font-size: 15px;
+    font-size: 14px;
+}
+
+.participantIcon{
+    margin-right: 5px;
+    border-radius: 8%;
+    height: 16px;
 }
