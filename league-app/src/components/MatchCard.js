@@ -138,7 +138,7 @@ export default function MatchCard(props){
         //get Itmes from my S3 bucket storage
         const ward = player.item6
         //{`https://opgg-static.akamaized.net/images/lol/item/${item}.png?image=q_auto,f_webp,w_44&v=1664158120569`}
-        const displayItems = items.map((item, index) => <div key={index} className={`item${index}`}> {item === 0 ? "" : <img src = {`http://localhost:8080/images/items/${item}.png`}/>} </div>)
+        const displayItems = items.map((item, index) => <div key={index} className={`item${index}`}> {item === 0 ? "" : <img src = {`${process.env.REACT_APP_API_ENDPOINT}images/items/${item}.png`}/>} </div>)
 
         //Display all summoners in the game
         const allPlayers = info.participants.map(participant => [participant.summonerName, participant.championName]);

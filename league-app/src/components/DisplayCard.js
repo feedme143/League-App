@@ -6,7 +6,7 @@ import axios from 'axios';
 export default function DisplayCard(props){
 
     const api = axios.create({ //axios setup
-        baseURL: `http://localhost:8080`
+        baseURL: process.env.REACT_APP_API_ENDPOINT
     })  
 
     const {name} = useParams(); //params for this component
