@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import Tooltip from '@mui/material/Tooltip';
 
 export default function MatchCard(props){
         
@@ -8,7 +9,7 @@ export default function MatchCard(props){
         
         const playerIndex = metadata.participants.indexOf(props.puuid)
         const player = info.participants[playerIndex]
-
+      
         //Champion Played Info
         let champPlayed = player.championName
         let displayPlayed=champPlayed
@@ -19,13 +20,14 @@ export default function MatchCard(props){
         //Function to get an champion icon image path
         let getChampIcon = (champIconName) => {
             const processedName=nameProcess(champIconName);
-            return `https://opgg-static.akamaized.net/images/lol/champion/${processedName}.png?image=c_crop,h_103,w_103,x_9,y_9/q_auto,f_webp,w_auto&v=1659072303149`;
+            return `${process.env.REACT_APP_API_ENDPOINT}images/champicons/${processedName}.png`;
         };
 
         //Champion image
         let champIconPath = getChampIcon(champPlayed);
 
         function nameProcess(name){ 
+
             if(name==="Renata Glasc")
                 return "Renata"
             let str=name;
@@ -147,7 +149,9 @@ export default function MatchCard(props){
 
         const displayBlue = blueTeam.map((player, index) => (
             <div key={index} className="player">
-                <img src={getChampIcon(player[1])} alt="N/A" className="participantIcon"/>
+                <Tooltip title="champion" placement="top" arrow>
+                    <img src={getChampIcon(player[1])} alt="N/A" className="participantIcon"/>
+                </Tooltip>
                 <Link to={`/display/${player[0]}`} className="playerLink">{player[0]}</Link>
             </div>));
 

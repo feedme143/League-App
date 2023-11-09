@@ -12,5 +12,5 @@ export default function MatchHistory(props) {
             </div>
             {displayMatchHistory}
         </div>
-    )
-}
+    )  
+} 

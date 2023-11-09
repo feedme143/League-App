@@ -62,10 +62,13 @@ export default function DisplayCard(props){
         <div className="displayCard">
             {summonerData && <div className="top">
                 <div className="topContainer">
+                    <div className="profileIcon">{summonerData.profileIcon}</div>
                     <div className="accountName">Name: {summonerData.name}</div>
                     <div className="accountLevel">Level: {summonerData.level}</div>
                     <button className="update" onClick={update}>Update</button>
                     <div className="lastUpdated">{"Last Updated: " + (summonerData.lastUpdated ? convertTime(summonerData.lastUpdated) : "N/A")}</div>
+                    <div className="ranked solo/duo">{"Ranked Solo/Duo: " + (summonerData?.ranked?.[0] ? (summonerData.ranked[0].tier + " " + summonerData.ranked[0].rank) : "Unranked")}</div>
+                    <div className="ranked flex">{"Ranked Flex: " + (summonerData?.ranked?.[1] ? (summonerData.ranked[1].tier + " " + summonerData.ranked[1].rank) : "Unranked")}</div>
                 </div>
             </div>}
             {summonerData && <MatchHistory puuid={summonerData.puuid} name={summonerData.name} games={summonerData.games}/>}

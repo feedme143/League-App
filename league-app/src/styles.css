@@ -37,11 +37,27 @@ main{
     justify-content: space-between;
 }
 
+.homePage{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .welcome{
     margin: auto;
     margin-left: 25vh;
     margin-right: 25vh;
     font-size: 5rem;
+    overflow-wrap: normal;
+    text-align: center;
+}
+
+.eg{
+    margin: auto;
+    margin-left: 25vh;
+    margin-right: 25vh;
+    font-size: 2rem;
     overflow-wrap: normal;
     text-align: center;
 }
